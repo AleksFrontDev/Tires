@@ -1,17 +1,34 @@
+import { useContext, useEffect } from "react";
 import Search from "../Search/Search";
 import "./header.sass";
+import { TiresContext } from "../../App";
+import data from "../../tiresArray";
 
 const Header = () => {
   const navStyle = {
     backgroundColor: "#e3f2fd",
   };
+
+  const { setFilteredCards } = useContext(TiresContext);
+
+  useEffect(() => {
+    setFilteredCards(data);
+  }, [setFilteredCards]);
+
+  const handleSearch = (searchValue) => {
+    const filtered = data.filter((card) =>
+      card.title.toLowerCase().includes(searchValue.toLowerCase().trim())
+    );
+    setFilteredCards(filtered);
+  };
+
   return (
     <div>
       <header>
         <nav className="navbar navbar-expand-lg" style={navStyle}>
           <div className="container-fluid">
             <button
-              class="navbar-toggler"
+              className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarTogglerDemo03"
@@ -19,7 +36,7 @@ const Header = () => {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span class="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon"></span>
             </button>
 
             <h1>Tires</h1>
@@ -36,7 +53,7 @@ const Header = () => {
                   </a>
                 </li>
               </ul>
-              <Search />
+              <Search handleSearch={handleSearch} />
             </div>
           </div>
         </nav>

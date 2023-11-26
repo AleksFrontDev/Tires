@@ -1,16 +1,32 @@
+import { useState } from "react";
 import "./search.sass";
 
-const Search = () => {
+const Search = ({ handleSearch }) => {
+  const [search, setSearch] = useState("");
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearch(value);
+    if (!value.length) {
+      handleSearch("");
+    }
+  };
+
   return (
     <div className="search">
       <form className="d-flex" role="search">
         <input
           className="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
+          type="text"
+          placeholder="Search..."
+          value={search}
+          onChange={handleSearchChange}
         />
-        <button className="btn btn-outline-success" type="submit">
+        <button
+          onClick={() => handleSearch(search)}
+          className="btn btn-outline-success"
+          type="button"
+        >
           Search
         </button>
       </form>
