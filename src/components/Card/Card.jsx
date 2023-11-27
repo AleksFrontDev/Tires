@@ -14,8 +14,9 @@ const Card = () => {
               <div className="card">
                 <img src={card.img} className="card-img-top" alt="tires" />
                 <ul className="list-group">
-                  <li className="list-group-item">{card.title}</li>
-                  <li className="list-group-item">{card.price}</li>
+                  <li className="list-group-item">
+                    <b> {card.title}</b> | <b>Цена:</b> <em>{card.price}</em>$
+                  </li>
                   <li className="list-group-item">{card.description}</li>
                 </ul>
                 <div className="card-body">
