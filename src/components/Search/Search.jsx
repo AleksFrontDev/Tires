@@ -18,7 +18,7 @@ const Search = ({ handleSearch }) => {
         <input
           className="form-control me-2"
           type="text"
-          placeholder="Search..."
+          placeholder="Поиск ..."
           value={search}
           onChange={handleSearchChange}
         />
@@ -27,7 +27,7 @@ const Search = ({ handleSearch }) => {
           className="btn btn-outline-success"
           type="button"
         >
-          Search
+          Поиск
         </button>
       </form>
     </div>

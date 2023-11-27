@@ -17,6 +17,8 @@ const Card = () => {
                   <li className="list-group-item">
                     <b> {card.title}</b> | <b>Цена:</b> <em>{card.price}</em>$
                   </li>
+                  <li className="list-group-item">{card.seezon}</li>
+
                   <li className="list-group-item">{card.description}</li>
                 </ul>
                 <div className="card-body">

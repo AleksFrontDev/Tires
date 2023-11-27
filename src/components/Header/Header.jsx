@@ -1,8 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import Search from "../Search/Search";
 import "./header.sass";
 import { TiresContext } from "../../App";
 import data from "../../tiresArray";
+import imgWinter from "../../resources/icons/snowflake_642000.png";
+import imgSummer from "../../resources/icons/sunny_979585.png";
 
 const Header = () => {
   const navStyle = {
@@ -19,6 +21,17 @@ const Header = () => {
     const filtered = data.filter((card) =>
       card.title.toLowerCase().includes(searchValue.toLowerCase().trim())
     );
+    setFilteredCards(filtered);
+  };
+
+  const handleFilter = (isWinter) => {
+    let filtered = [];
+    if (isWinter) {
+      filtered = data.filter((item) => item.rise === true);
+    } else {
+      filtered = data.filter((item) => item.rise === false);
+    }
+
     setFilteredCards(filtered);
   };
 
@@ -39,19 +52,35 @@ const Header = () => {
               <span className="navbar-toggler-icon"></span>
             </button>
 
-            <h1>Tires</h1>
+            <h1>Шины +</h1>
             <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="page" href="#">
-                    Main
+                    Главная
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#">
-                    Cart
+                    Контакты
                   </a>
                 </li>
+                <ul className="nav-filter">
+                  <li
+                    onClick={() => handleFilter(true)}
+                    className="nav-filter-item"
+                  >
+                    <span>Зимняя резина</span>{" "}
+                    <img className="nav-img" src={imgWinter} alt="winter" />
+                  </li>
+                  <li
+                    onClick={() => handleFilter(false)}
+                    className="nav-filter-item"
+                  >
+                    <span> Летняя резина</span>
+                    <img className="nav-img" src={imgSummer} alt="summer" />
+                  </li>
+                </ul>
               </ul>
               <Search handleSearch={handleSearch} />
             </div>

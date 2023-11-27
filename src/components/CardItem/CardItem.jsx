@@ -1,12 +1,12 @@
 import React from "react";
 import "./cardItem.sass";
-import img from "../../resources/img/m55-right.jpg";
+// import img from "../../resources/img/m55-right.jpg";
 
 const CardItem = () => {
   return (
     <div className="container">
       <div className="card">
-        <img className="card-img-top" src={img} alt="..." />
+        <img className="card-img-top" src={"img"} alt="..." />
         <div className="card-body">
           <h5 className="card-title">Card title</h5>
           <p className="card-text">
