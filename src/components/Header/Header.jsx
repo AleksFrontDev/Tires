@@ -1,10 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import Search from "../Search/Search";
 import "./header.sass";
-import { TiresContext } from "../../App";
+import { TiresContext } from "../../index";
 import data from "../../tiresArray";
 import imgWinter from "../../resources/icons/snowflake_642000.png";
 import imgSummer from "../../resources/icons/sunny_979585.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const navStyle = {
@@ -56,14 +57,14 @@ const Header = () => {
             <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <Link to="/" className="nav-link active" aria-current="page">
                     Главная
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <Link to="/contacts" className="nav-link">
                     Контакты
-                  </a>
+                  </Link>
                 </li>
                 <ul className="nav-filter">
                   <li

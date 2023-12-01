@@ -1,23 +1,27 @@
-import Header from "./components/Header/Header";
-import Card from "./components/Card/Card";
-import CardItem from "./components/CardItem/CardItem";
-import Pagination from "./components/Pagination/Pagination";
-import { createContext, useState } from "react";
-
-export const TiresContext = createContext();
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import MainPage from "./components/pages/MainPage";
+import { TiresContext } from ".";
+import { useState } from "react";
+import ContactsPage from "./components/pages/ContactsPage";
+// import SinglePage from "./components/pages/SinglePage";
 
 function App() {
   const [filteredCards, setFilteredCards] = useState([]);
 
   return (
-    <div className="App">
-      <TiresContext.Provider value={{ filteredCards, setFilteredCards }}>
-        <Header />
-        <Card />
-        <Pagination />
-        {/* <CardItem /> */}
-      </TiresContext.Provider>
-    </div>
+    <TiresContext.Provider value={{ filteredCards, setFilteredCards }}>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={MainPage} />
+            <Route path="/contacts" component={ContactsPage} />
+            {/* <Route exact path="/comics/:id">
+              <SinglePage Component={...} dataType="tire" />
+            </Route> */}
+          </Switch>
+        </div>
+      </Router>
+    </TiresContext.Provider>
   );
 }
 

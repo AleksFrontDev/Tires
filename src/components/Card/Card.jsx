@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import "./card.sass";
-import { TiresContext } from "../../App";
+import { TiresContext } from "../../index";
 
 const Card = () => {
   const { filteredCards } = useContext(TiresContext);
