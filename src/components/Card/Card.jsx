@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import "./card.sass";
 import { TiresContext } from "../../index";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Card = () => {
   const { filteredCards } = useContext(TiresContext);
@@ -22,9 +23,9 @@ const Card = () => {
                   <li className="list-group-item">{card.description}</li>
                 </ul>
                 <div className="card-body">
-                  <a href="#" className="card-link">
+                  <Link to={`/comics/${card.id}`} className="card-link">
                     {card.title}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

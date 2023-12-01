@@ -3,7 +3,7 @@ import MainPage from "./components/pages/MainPage";
 import { TiresContext } from ".";
 import { useState } from "react";
 import ContactsPage from "./components/pages/ContactsPage";
-// import SinglePage from "./components/pages/SinglePage";
+import SinglePage from "./components/pages/SinglePage";
 
 function App() {
   const [filteredCards, setFilteredCards] = useState([]);
@@ -15,9 +15,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={MainPage} />
             <Route path="/contacts" component={ContactsPage} />
-            {/* <Route exact path="/comics/:id">
-              <SinglePage Component={...} dataType="tire" />
-            </Route> */}
+            <Route path="/comics/:id" component={SinglePage} />
           </Switch>
         </div>
       </Router>

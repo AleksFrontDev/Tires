@@ -1,7 +1,9 @@
+import CardItem from "../CardItem/CardItem";
+
 const SinglePage = () => {
   return (
     <div>
-      <h1>Hello</h1>
+      <CardItem />
     </div>
   );
 };
