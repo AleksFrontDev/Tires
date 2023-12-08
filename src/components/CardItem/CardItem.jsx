@@ -32,7 +32,7 @@ const CardItem = () => {
               id={selectedCard.id}
               src={selectedCard.img}
               alt="tire"
-              style={{ width: 200, height: 200 }}
+              style={{ width: 300, height: 300 }}
             />
             <h5 className="card-title">{selectedCard.title}</h5>
             <p className="card-text">{selectedCard.description}</p>
