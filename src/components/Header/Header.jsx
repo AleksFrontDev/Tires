@@ -71,7 +71,7 @@ const Header = () => {
                     onClick={() => handleFilter(true)}
                     className="nav-filter-item"
                   >
-                    <span>Зимняя резина</span>{" "}
+                    <span>Зимняя резина</span>
                     <img className="nav-img" src={imgWinter} alt="winter" />
                   </li>
                   <li
