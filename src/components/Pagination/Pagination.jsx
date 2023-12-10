@@ -5,6 +5,7 @@ import Card from "../Card/Card";
 
 const Pagination = () => {
   const { filteredCards } = useContext(TiresContext);
+
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 12;
   const pagesCount = Math.ceil(filteredCards.length / itemsPerPage);
