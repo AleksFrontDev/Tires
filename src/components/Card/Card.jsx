@@ -1,18 +1,14 @@
-import { useContext } from "react";
 import "./card.sass";
-import { TiresContext } from "../../index";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Error from "../pages/404/404";
 
-const Card = () => {
-  const { filteredCards } = useContext(TiresContext);
-
+const Card = ({ currentItems }) => {
   return (
     <main>
       <div className="container">
         <div className="row">
-          {filteredCards ? (
-            filteredCards.map((card, i) => (
+          {currentItems ? (
+            currentItems.map((card, i) => (
               <div className="col" key={i}>
                 <div className="card">
                   <img src={card.img} className="card-img-top" alt="tires" />
