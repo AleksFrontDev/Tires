@@ -3,9 +3,12 @@ import Search from "../Search/Search";
 import "./header.sass";
 import { TiresContext } from "../../index";
 import data from "../../tiresArray";
-import imgWinter from "../../resources/icons/snowflake_642000.png";
-import imgSummer from "../../resources/icons/sunny_979585.png";
 import { Link } from "react-router-dom";
+
+
+const imgWinter = require ("../../resources/icons/snowflake_642000.png");
+const imgSummer = require ("../../resources/icons/sunny_979585.png");
+
 
 const Header = () => {
   const navStyle = {
@@ -18,14 +21,14 @@ const Header = () => {
     setFilteredCards(data);
   }, [setFilteredCards]);
 
-  const handleSearch = (searchValue) => {
+  const handleSearch = (searchValue:string) => {
     const filtered = data.filter((card) =>
       card.title.toLowerCase().includes(searchValue.toLowerCase().trim())
     );
     setFilteredCards(filtered);
   };
 
-  const handleFilter = (isWinter) => {
+  const handleFilter = (isWinter:boolean) => {
     let filtered = [];
     if (isWinter) {
       filtered = data.filter((item) => item.rise === true);

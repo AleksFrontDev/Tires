@@ -1,17 +1,24 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./cardItem.sass";
 import Header from "../Header/Header";
-import data from "../../tiresArray"; // Поправьте путь к вашим данным
+import data from "../../tiresArray"; 
 import { useParams } from "react-router-dom";
-import Error from "../pages/404/404";
+import Error from "../pages/Error/Error";
+import { Tires } from "../../tiresArray";
+
+interface ParamTypes {
+  id: string;
+}
 
 const CardItem = () => {
-  const { id } = useParams();
-  const [selectedCard, setSelectedCard] = useState(null);
+  const { id } = useParams<ParamTypes>();
+  const [selectedCard, setSelectedCard] = useState<Tires | null>(null);
 
   useEffect(() => {
-    const card = data.find((card) => card.id === parseInt(id));
-    setSelectedCard(card);
+    if (data) {
+      const card = data.find((card) => card.id === parseInt(id));
+      setSelectedCard(card || null);
+    }
   }, [id]);
 
   if (!selectedCard) {
@@ -29,7 +36,7 @@ const CardItem = () => {
         <div className="card card-item">
           <div className="card-body">
             <img
-              id={selectedCard.id}
+              id={selectedCard.id.toString()}
               src={selectedCard.img}
               alt="tire"
               style={{ width: 300, height: 300 }}

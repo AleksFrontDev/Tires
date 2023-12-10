@@ -1,15 +1,14 @@
 import React from "react";
 import "./contacts.sass";
-import img from "../../resources/img/pile-of-tires-on-white-background-royalty-free-image-672151801-1561751929.jpg";
 
 const Contacts = () => {
   return (
     <div className="container">
       <div className="contacts">
         <img
-          src={img}
+          src="https://cdn11.bigcommerce.com/s-22e4x1yotr/images/stencil/1280x1280/uploaded_images/pt-blog-radial-tires-480x297.jpg?t=1687871463"
           alt="tires"
-          style={{ width: "500px", height: "500px" }}
+          style={{ width: "650px", height: "450px" }}
         />
         <p>
           Email:{" "}

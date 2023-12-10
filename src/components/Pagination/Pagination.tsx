@@ -10,7 +10,7 @@ const Pagination = () => {
   const itemsPerPage = 12;
   const pagesCount = Math.ceil(filteredCards.length / itemsPerPage);
 
-  const handleClick = (currentPage) => {
+  const handleClick = (currentPage:number) => {
     setCurrentPage(currentPage);
   };
 

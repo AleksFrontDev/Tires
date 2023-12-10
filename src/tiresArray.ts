@@ -1,4 +1,14 @@
-const tiresArray = [
+export interface Tires {
+  id:number;
+  title:string;
+  rise:boolean;
+  seezon:string;
+  img:string;
+  price:number;
+  description:string
+}
+
+const tiresArray: Tires[] = [
   {
     id: 0,
     title: "RoadMaster Plus",

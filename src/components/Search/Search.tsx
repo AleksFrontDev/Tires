@@ -1,10 +1,14 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import "./search.sass";
 
-const Search = ({ handleSearch }) => {
+interface TypeSearch {
+  handleSearch:(searchValue:string) => void
+}
+
+const Search:React.FC<TypeSearch> = ({ handleSearch }) => {
   const [search, setSearch] = useState("");
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearch(value);
     if (!value.length) {
