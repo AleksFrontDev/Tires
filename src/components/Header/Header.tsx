@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import Search from "../Search/Search";
 import "./header.sass";
-import { TiresContext } from "../../index";
+import  TiresContext from "../../index";
 import data from "../../tiresArray";
 import { Link } from "react-router-dom";
 
@@ -15,16 +15,20 @@ const Header = () => {
     backgroundColor: "#e3f2fd",
   };
 
+  //@ts-ignore
   const { setFilteredCards } = useContext(TiresContext);
 
   useEffect(() => {
+    //@ts-ignore
     setFilteredCards(data);
   }, [setFilteredCards]);
 
+  
   const handleSearch = (searchValue:string) => {
     const filtered = data.filter((card) =>
       card.title.toLowerCase().includes(searchValue.toLowerCase().trim())
     );
+    //@ts-ignore
     setFilteredCards(filtered);
   };
 

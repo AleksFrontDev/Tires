@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import "./pagination.sass";
-import { TiresContext } from "../..";
 import Card from "../Card/Card";
+import TiresContext from "../..";
+import { TiresContextData } from "../..";
+
 
 const Pagination = () => {
-  const { filteredCards } = useContext(TiresContext);
-
+  //@ts-ignore
+  const { filteredCards } = useContext<TiresContextData>(TiresContext) || { filteredCards: [] };
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 12;
   const pagesCount = Math.ceil(filteredCards.length / itemsPerPage);

@@ -1,42 +1,36 @@
-import "./card.sass";
+import React from "react";
 import { Link } from "react-router-dom";
 import Error from "../pages/Error/Error";
+import "./card.sass"
 
-type Cards ={
-  img:string
-  title:string
-  price:number
-  seezon:string
-  description:string
-  id:number
+export type CardItem = {
+  img: string;
+  title: string;
+  price: number;
+  season: string;
+  description: string;
+  id: number;
+};
+
+interface CardProps {
+  currentItems: CardItem[];
 }
 
-type CardItems = {
-  img:string
-  title:string
-  price:number
-  seezon:string
-  description:string
-  id:number
-}
-
-
-const Card = ({ currentItems}: {currentItems:Array<CardItems>}) => {
+const Card: React.FC<CardProps> = ({ currentItems }) => {
   return (
     <main>
       <div className="container">
         <div className="row">
-          {currentItems ? (
-            currentItems.map((card:Cards, i:number)=> (
+          {currentItems.length ? (
+            currentItems.map((card: CardItem, i: number) => (
               <div className="col" key={i}>
                 <div className="card">
                   <img src={card.img} className="card-img-top" alt="tires" />
                   <ul className="list-group">
                     <li className="list-group-item">
-                      <b> {card.title}</b> | <b>Цена:</b> <em>{card.price}</em>$
+                      <b>{card.title}</b> | <b>Цена:</b> <em>{card.price}</em>$
                     </li>
-                    <li className="list-group-item">{card.seezon}</li>
-
+                    <li className="list-group-item">{card.season}</li>
                     <li className="list-group-item">{card.description}</li>
                   </ul>
                   <div className="card-body">

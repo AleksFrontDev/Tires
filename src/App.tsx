@@ -1,15 +1,20 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MainPage from "./components/pages/MainPage";
-import { TiresContext } from ".";
+import TiresContext from ".";
 import { useState } from "react";
 import ContactsPage from "./components/pages/ContactsPage";
 import SinglePage from "./components/pages/SinglePage";
 
-function App() {
-  const [filteredCards, setFilteredCards] = useState([]);
+type MyStateType ={
+  value:string;
+}
+
+const App: React.FC = () => {
+  const [filteredCards, setFilteredCards] = useState<MyStateType[]>([]); 
 
   return (
-    <TiresContext.Provider value={{ filteredCards, setFilteredCards }}>
+    //@ts-ignore
+    <TiresContext.Provider value={{value: 'someValue', filteredCards, setFilteredCards }}>
       <Router>
         <div className="App">
           <Switch>
