@@ -5,15 +5,18 @@ import { useState } from "react";
 import ContactsPage from "./components/pages/ContactsPage";
 import SinglePage from "./components/pages/SinglePage";
 
+
+
 type MyStateType ={
-  value:string;
+  value:string,
+  filteredCards:[],
 }
 
 const App: React.FC = () => {
   const [filteredCards, setFilteredCards] = useState<MyStateType[]>([]); 
 
   return (
-    //@ts-ignore
+      //@ts-ignore
     <TiresContext.Provider value={{value: 'someValue', filteredCards, setFilteredCards }}>
       <Router>
         <div className="App">

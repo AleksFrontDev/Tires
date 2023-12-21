@@ -16,7 +16,7 @@ const Header = () => {
   };
 
   //@ts-ignore
-  const { setFilteredCards } = useContext(TiresContext);
+  const { setFilteredCards } = useContext<unknown>(TiresContext);
 
   useEffect(() => {
     //@ts-ignore

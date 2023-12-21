@@ -3,20 +3,27 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createContext, Context } from 'react';
 
-type MyStateType = {
-  value: string;
-};
+
+interface Cards {
+  id:number;
+  title:string;
+  rise:boolean;
+  seezon:string;
+  img:string;
+  price:number;
+  description:string
+}
+
+
 
 export interface TiresContextData {
-  value: string;
-  filteredCards: MyStateType[]; // Add the property to the context data
-  setFilteredCards: React.Dispatch<React.SetStateAction<MyStateType[]>>;
+  value:string
+  filteredCards:Cards[],
 }
 
 const TiresContext: Context<TiresContextData> = createContext<TiresContextData>({
   value: 'defaultValue',
-  filteredCards: [], // Set an initial empty array
-  setFilteredCards: () => {}, // Provide an empty setter function
+  filteredCards: []
 });
 
 
